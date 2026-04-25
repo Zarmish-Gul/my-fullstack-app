@@ -3,8 +3,9 @@ import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite' // 1. Import it
 
 export default defineConfig({
-  plugins: [
-    react(),
-    tailwindcss(), // 2. Add it here
-  ],
+ plugins: [react()],
+  server: {
+    proxy: {
+      '/api': 'http://localhost:3000'
+    }}
 })
